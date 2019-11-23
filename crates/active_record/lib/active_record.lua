@@ -147,6 +147,7 @@ function ActiveRecord.establish_connection(config)
   end
 
   ActiveRecord.adapter = (ActiveRecord.Adapters[adapter:capitalize()] or ActiveRecord.Adapters.Abstract).new()
+  ActiveRecord.adapter:init()
   ActiveRecord.adapter:connect(config, ActiveRecord.Adapters.Abstract.on_connected)
 end
 
